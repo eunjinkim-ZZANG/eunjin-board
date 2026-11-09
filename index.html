@@ -103,7 +103,8 @@ function okItems(d) {
   const exp = d.ok.filter((x) => x.kind === '실험 판정');
   const rest = d.ok.filter((x) => x.kind !== '실험 판정');
   const out = rest.map((x) => {
-    const label = x.kind === '팀 답장 초안' ? `${short(x.title.split('·')[1] || x.title, 10)}에게 답장 OK` : x.kind === '대화방' ? short(x.title, 26) : short(x.ask || x.title, 30);
+    const nm = (x.title.split('·')[1] || '').replace(/\(.*?\)/g, '').trim().split(' ')[0];
+    const label = x.kind === '팀 답장 초안' ? `${nm} 답장: ${short(String(x.ask).replace(/^\(진 태그\)\s*/, ''), 18)}` : x.kind === '대화방' ? short(x.title, 26) : short(x.ask || x.title, 30);
     return { dot: x.kind === '대화방' ? '' : 'warn', text: label, age: ago(x.since), more: `${esc(x.ask)}${x.link ? ` · <a href="${esc(x.link)}" target="_blank">원문</a>` : ''}` };
   });
   if (exp.length) out.push({ dot: 'warn', text: `판정일 지난 실험 ${exp.length}개`, age: '', more: exp.map((x) => esc(short(x.title, 44))).join('<br>') });
@@ -133,7 +134,7 @@ function render(d) {
      ${d.results.perf ? item('acc', '지난주: ' + short(d.results.perf.line, 30), esc(d.results.perf.period), esc(d.results.perf.line)) : ''}
      ${d.results.expEnded.slice(0, 3).map((x) => item('', short(x.title.split('·').slice(1).join('·') || x.title, 30), '실험', esc(x.result))).join('')}`)}
   ${sec('auto', flagged.length, flagged.length > 0, '자동 작업 확인 필요', `지난 24시간 ${a.runs}번 돌았고 나머지는 정상`,
-    flagged.map((g) => item('warn', short(g.name, 30), ago(g.latestAt), esc(g.latest))).join('') || '<div class="empty">다 정상이에요</div>')}
+    flagged.map((g) => item('warn', short(g.name.replace(/\s*\([^)]*\)/g, ''), 30), ago(g.latestAt), esc(g.latest))).join('') || '<div class="empty">다 정상이에요</div>')}
   ${d.links && d.links.length ? `<div class="links">${d.links.map((l) => `<a href="${esc(l.href)}">${esc(l.title)}</a>`).join('')}</div>` : ''}
   `;
   $('#app').innerHTML = html;
