@@ -100,7 +100,7 @@ function render(d) {
   </div>
 
   <section id="ok"><h2>지금 내가 OK·답해야 할 것 <span class="n">${d.ok.length}</span></h2>
-    <p class="why">이게 비어야 일이 막히지 않아요. 판정일 지난 실험, 팀에 나갈 답장 초안, 회의에서 내가 맡은 일, 내 답을 기다리는 대화방 순서예요.</p>
+    <p class="why">이게 비어야 일이 막히지 않아요. 팀에 나갈 답장 초안, 회의에서 내가 맡은 일, 내 답을 기다리는 대화방(최근 3일), 판정일 지난 실험 순서예요.</p>
     ${list(d.ok, (x) => `<div class="t"><span class="chip ${okKind[x.kind] || ''}">${esc(x.kind)}</span>${esc(x.title)}</div>${x.ask ? `<div class="ask">${esc(x.ask)}</div>` : ''}<div class="s">${ago(x.since)}부터${x.link ? ` · <a href="${esc(x.link)}" target="_blank">원문</a>` : ''}</div>`, '지금 기다리는 건 없어요.', 8)}
     <p class="why" style="margin-top:6px">대화방은 제가 마지막에 질문으로 끝낸 방을 골라낸 거라, 이미 끝난 방이 섞일 수 있어요.</p>
   </section>
