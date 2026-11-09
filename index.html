@@ -10,54 +10,53 @@
 <meta name="theme-color" content="#151515" media="(prefers-color-scheme: dark)">
 <title>내 일 한눈에</title>
 <style>
-:root{--bg:#f6f5f2;--card:#fff;--fg:#1b1b1a;--mut:#6d6b66;--line:#e6e3dc;--acc:#1f6f5c;--accbg:#e4f1ec;--warn:#b4471f;--warnbg:#fbeae2;--chip:#efede8}
-@media (prefers-color-scheme: dark){:root{--bg:#151515;--card:#1f1f1e;--fg:#f1efea;--mut:#a19e97;--line:#2e2d2b;--acc:#6cc3a8;--accbg:#1c302a;--warn:#f08a62;--warnbg:#3a231a;--chip:#2a2a28}}
+:root{--bg:#f6f5f2;--card:#fff;--fg:#1b1b1a;--mut:#8a877f;--line:#ebe8e1;--acc:#1f6f5c;--accbg:#e4f1ec;--warn:#c2410c;--warnbg:#fdebe1;--chip:#f0eee9}
+@media (prefers-color-scheme: dark){:root{--bg:#141414;--card:#1e1e1d;--fg:#f1efea;--mut:#9a978f;--line:#2c2b29;--acc:#6cc3a8;--accbg:#1c302a;--warn:#f59a72;--warnbg:#3a231a;--chip:#2a2a28}}
 *{box-sizing:border-box;min-width:0}
 html,body{overflow-x:hidden}
-section,li,.big div,.stat{overflow-wrap:anywhere;word-break:break-word}
-html{background:var(--bg);color:var(--fg);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;-webkit-text-size-adjust:100%}
-body{margin:0;padding:max(16px,env(safe-area-inset-top)) 16px 48px}
-.wrap{max-width:980px;margin:0 auto}
-header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin:4px 0 14px}
+html{background:var(--bg);color:var(--fg);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;-webkit-text-size-adjust:100%}
+body{margin:0;padding:max(18px,env(safe-area-inset-top)) 16px 48px}
+.wrap{max-width:640px;margin:0 auto}
+header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:2px 2px 16px}
 h1{font-size:22px;letter-spacing:-.02em;margin:0}
-.upd{font-size:12.5px;color:var(--mut)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-decoration:none;color:inherit}
-.stat b{display:block;font-size:24px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.stat span{font-size:12px;color:var(--mut)}
-.stat.hot b{color:var(--warn)}
-@media (max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
-section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 10px;margin-bottom:14px}
-section>h2{font-size:17px;letter-spacing:-.01em;margin:0 0 2px;display:flex;align-items:center;gap:8px}
-section>h2 .n{font-size:12px;font-weight:600;color:var(--mut);background:var(--chip);border-radius:999px;padding:1px 8px}
-.why{font-size:12.5px;color:var(--mut);margin:0 0 10px}
-h3{font-size:13px;color:var(--mut);font-weight:600;margin:14px 0 4px}
-ul{list-style:none;margin:0;padding:0}
-li{padding:10px 0;border-top:1px solid var(--line)}
-li:first-child{border-top:0}
-.t{font-weight:600}
-.s{font-size:13px;color:var(--mut);margin-top:2px}
-.ask{font-size:13.5px;margin-top:3px}
-.chip{display:inline-block;font-size:11.5px;color:var(--mut);background:var(--chip);border-radius:6px;padding:0 6px;margin-right:6px;vertical-align:1px;font-weight:500}
-.chip.warn{background:var(--warnbg);color:var(--warn)}
-.chip.acc{background:var(--accbg);color:var(--acc)}
-.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:6px 0 4px}
-.big div{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.big b{display:block;font-size:22px;letter-spacing:-.02em}
-.big .lbl{font-size:12.5px;color:var(--mut)}
-.big .note{font-size:12px;color:var(--mut);margin-top:4px}
-.empty{color:var(--mut);font-size:13.5px;padding:6px 0 10px}
-details summary{cursor:pointer;color:var(--acc);font-size:13.5px;padding:8px 0;list-style:none}
-details summary::-webkit-details-marker{display:none}
-a{color:var(--acc)}
-.links{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 8px}
-.links a{font-size:13px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
-.err{background:var(--warnbg);color:var(--warn);border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:12px}
+.upd{font-size:12px;color:var(--mut)}
+.hero{background:var(--card);border-radius:18px;padding:18px 18px 8px;margin-bottom:12px}
+.hero h2{font-size:15px;color:var(--mut);font-weight:600;margin:0 0 6px}
+.row{display:flex;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);font-size:16px}
+.row:first-of-type{border-top:0}
+.row .tx{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .ag{font-size:12px;color:var(--mut);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);flex:none}
+.dot.warn{background:var(--warn)}.dot.acc{background:var(--acc)}
+details.sec{background:var(--card);border-radius:18px;margin-bottom:12px}
+details.sec>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:16px 18px}
+details.sec>summary::-webkit-details-marker{display:none}
+.num{font-size:30px;font-weight:700;letter-spacing:-.03em;min-width:44px;font-variant-numeric:tabular-nums}
+.num.warn{color:var(--warn)}
+.lab{flex:1}
+.lab b{display:block;font-size:16px}
+.lab span{font-size:13px;color:var(--mut)}
+.chev{color:var(--mut);transition:transform .2s}
+details[open]>summary .chev{transform:rotate(90deg)}
+.body{padding:0 18px 10px}
+details.it{border-top:1px solid var(--line)}
+details.it:first-child{border-top:0}
+details.it>summary{list-style:none;cursor:pointer}
+details.it>summary::-webkit-details-marker{display:none}
+details.it>summary .row{border-top:0}
+.more{font-size:14px;color:var(--mut);padding:0 0 12px 18px;line-height:1.55}
+.more a{color:var(--acc)}
+.grp{font-size:12px;color:var(--mut);font-weight:600;margin:14px 0 2px}
+.grp:first-child{margin-top:0}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:4px 0 10px}
+.kpi div{background:var(--chip);border-radius:12px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;letter-spacing:-.02em}
+.kpi span{font-size:12px;color:var(--mut)}
+.empty{color:var(--mut);font-size:14px;padding:6px 0 12px}
+.err{background:var(--warnbg);color:var(--warn);border-radius:12px;padding:8px 12px;font-size:13px;margin-bottom:12px}
 .lock{max-width:420px;margin:15vh auto;text-align:center;color:var(--mut)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width:760px){.two{grid-template-columns:1fr}}
-.two section{margin-bottom:0}
-.gap{height:14px}
+.links{display:flex;flex-wrap:wrap;gap:6px;padding:4px 0 8px}
+.links a{font-size:13px;color:var(--acc);text-decoration:none;background:var(--chip);border-radius:999px;padding:4px 10px}
 </style>
 </head>
 <body>
@@ -86,61 +85,56 @@ function list(items, render, emptyText, more = 6) {
   const rest = items.slice(more);
   return `<ul>${head}</ul>` + (rest.length ? `<details><summary>${rest.length}개 더 보기</summary><ul>${rest.map(render).map(li).join('')}</ul></details>` : '');
 }
+function short(t, n = 34) {
+  t = String(t ?? '').replace(/\s+/g, ' ').trim();
+  const first = t.split(/(?<=[.。!?])\s|[.。]\s*$|\s\/\s|\s·\s|:\s/)[0] || t;
+  const u = first.length >= 6 ? first : t;
+  return u.length > n ? u.slice(0, n - 1) + '…' : u;
+}
+function item(dot, text, age, more) {
+  const row = `<div class="row"><i class="dot ${dot}"></i><span class="tx">${esc(text)}</span>${age ? `<span class="ag">${age}</span>` : ''}</div>`;
+  return more ? `<details class="it"><summary>${row}</summary><div class="more">${more}</div></details>` : `<div class="it">${row}</div>`;
+}
+function sec(id, num, warn, title, hint, inner, open) {
+  return `<details class="sec" id="${id}"${open ? ' open' : ''}><summary><span class="num ${warn ? 'warn' : ''}">${num}</span><span class="lab"><b>${title}</b><span>${hint}</span></span><span class="chev">›</span></summary><div class="body">${inner}</div></details>`;
+}
+const mm = (s) => String(s || '').slice(5, 10).replace('-', '/');
+function okItems(d) {
+  const exp = d.ok.filter((x) => x.kind === '실험 판정');
+  const rest = d.ok.filter((x) => x.kind !== '실험 판정');
+  const out = rest.map((x) => {
+    const label = x.kind === '팀 답장 초안' ? `${short(x.title.split('·')[1] || x.title, 10)}에게 답장 OK` : x.kind === '대화방' ? short(x.title, 26) : short(x.ask || x.title, 30);
+    return { dot: x.kind === '대화방' ? '' : 'warn', text: label, age: ago(x.since), more: `${esc(x.ask)}${x.link ? ` · <a href="${esc(x.link)}" target="_blank">원문</a>` : ''}` };
+  });
+  if (exp.length) out.push({ dot: 'warn', text: `판정일 지난 실험 ${exp.length}개`, age: '', more: exp.map((x) => esc(short(x.title, 44))).join('<br>') });
+  return out;
+}
 function render(d) {
-  const okKind = { '실험 판정': 'warn', '팀 답장 초안': 'warn', '회의에서 맡은 일': 'acc', '슬랙 후속': 'acc', '대화방': '' };
-  const st = { '지금 작업 중': 'acc', '내 답 기다림': 'warn', '최근 대화': '' };
-  const flag = { '확인 필요': 'warn', '한 일 있음': 'acc', '조용히 끝남': '' };
   const a = d.auto.summary;
+  const ok = okItems(d);
+  const flagged = d.auto.routines.filter((g) => g.flag === '확인 필요');
+  const did = [...d.done.meetings.map((x) => ({ g: '회의', ...x })), ...d.done.slack.map((x) => ({ g: '슬랙', ...x }))];
+  const ov = d.results.overview[0];
   const html = `
-  <header><h1>내 일 한눈에</h1><div class="upd">마지막 갱신 ${hm(d.updatedAt)} (${ago(d.updatedAt)}) · 10분마다 저절로 새로고침</div></header>
-  ${d.errors && d.errors.length ? `<div class="err">못 읽은 기록이 있어요: ${d.errors.map(esc).join(' / ')}</div>` : ''}
-  <div class="stats">
-    <a class="stat ${d.counts.ok ? 'hot' : ''}" href="#ok"><b>${d.counts.ok}</b><span>내가 OK·답할 것</span></a>
-    <a class="stat" href="#doing"><b>${d.counts.doing}</b><span>진행 중인 일</span></a>
-    <a class="stat" href="#done"><b>${d.counts.done}</b><span>이번 주 한 일</span></a>
-    <a class="stat ${a.needCheck ? 'hot' : ''}" href="#auto"><b>${a.needCheck}</b><span>자동 작업 중 확인 필요</span></a>
+  <header><h1>내 일 한눈에</h1><span class="upd">${hm(d.updatedAt)} 갱신</span></header>
+  ${d.errors && d.errors.length ? `<div class="err">못 읽은 기록: ${d.errors.map(esc).join(' / ')}</div>` : ''}
+  <div class="hero"><h2>지금 할 것</h2>
+    ${ok.slice(0, 3).map((x) => item(x.dot, x.text, x.age, x.more)).join('') || '<div class="empty">기다리는 게 없어요</div>'}
   </div>
-
-  <section id="ok"><h2>지금 내가 OK·답해야 할 것 <span class="n">${d.ok.length}</span></h2>
-    <p class="why">이게 비어야 일이 막히지 않아요. 팀에 나갈 답장 초안, 회의에서 내가 맡은 일, 내 답을 기다리는 대화방(최근 3일), 판정일 지난 실험 순서예요.</p>
-    ${list(d.ok, (x) => `<div class="t"><span class="chip ${okKind[x.kind] || ''}">${esc(x.kind)}</span>${esc(x.title)}</div>${x.ask ? `<div class="ask">${esc(x.ask)}</div>` : ''}<div class="s">${ago(x.since)}부터${x.link ? ` · <a href="${esc(x.link)}" target="_blank">원문</a>` : ''}</div>`, '지금 기다리는 건 없어요.', 8)}
-    <p class="why" style="margin-top:6px">대화방은 제가 마지막에 질문으로 끝낸 방을 골라낸 거라, 이미 끝난 방이 섞일 수 있어요.</p>
-  </section>
-
-  <section id="doing"><h2>진행 중인 일 <span class="n">${d.doing.tasks.length + d.doing.sessions.length}</span></h2>
-    <p class="why">이번 주 할 일(마케팅 통합 운영판, ${ago(d.doing.opsUpdatedAt)} 갱신)과 최근 7일 안에 움직인 회사 대화방이에요.</p>
-    <h3>이번 주 할 일</h3>
-    ${list(d.doing.tasks, (x) => `<div class="t">${x.priority ? `<span class="chip ${x.priority === '먼저' ? 'warn' : ''}">${esc(x.priority)}</span>` : ''}${esc(x.title)}</div><div class="s">${esc(x.status)}${x.due ? ' · ' + esc(x.due) : ''}</div>${x.next ? `<div class="ask">다음: ${esc(x.next)}</div>` : ''}`, '운영판에 올라온 할 일이 없어요.', 5)}
-    <h3>최근 대화방</h3>
-    ${list(d.doing.sessions, (x) => `<div class="t"><span class="chip ${st[x.state] || ''}">${esc(x.state)}</span>${esc(x.title)}</div><div class="s">${esc(x.area)} · ${ago(x.updatedAt)}</div>`, '최근 7일 안에 움직인 회사 대화방이 없어요.', 6)}
-  </section>
-
-  <section id="done"><h2>이번 주 내가 한 일 <span class="n">${d.counts.done}</span></h2>
-    <p class="why">${esc(d.monday.slice(5).replace('-', '/'))} 월요일부터예요. 회의에서 정한 것, 슬랙에서 직접 처리한 것, 저와 같이 끝낸 일을 나눠 보여요.</p>
-    <h3>회의에서 정한 것</h3>
-    ${list(d.done.meetings, (x) => `<div class="t">${esc(x.what)}</div><div class="s">${esc(x.date.slice(5).replace('-', '/'))} ${esc(x.time)} · ${esc(x.where)}${x.todo && x.todo !== '-' ? ' · 내 할 일: ' + esc(x.todo) : ''}${x.link ? ` · <a href="${esc(x.link)}" target="_blank">회의록</a>` : ''}</div>`, '이번 주 기록된 회의 결정이 없어요. 평일 13시·19시에 노션 회의록에서 채워요.', 5)}
-    <h3>슬랙에서 직접 처리한 것</h3>
-    ${list(d.done.slack, (x) => `<div class="t"><span class="chip ${x.state === '내 차례' ? 'warn' : x.state === '끝' ? 'acc' : ''}">${esc(x.state)}</span>${esc(x.what)}</div><div class="s">${esc(x.date.slice(5).replace('-', '/'))} ${esc(x.time)} · ${esc(x.where)}${x.link ? ` · <a href="${esc(x.link)}" target="_blank">슬랙</a>` : ''}</div>`, '이번 주 기록된 슬랙 처리가 없어요. 평일 13시·19시에 채워요.', 5)}
-    <h3>저와 같이 끝낸 일 (발전 기록)</h3>
-    ${list(d.done.dev, (x) => `<div class="t"><span class="chip">${esc(x.area)}</span>${esc(x.what)}</div><div class="s">${esc(x.date.slice(5).replace('-', '/'))} · ${esc(x.type)} · 정한 사람 ${esc(x.who)}${x.now && x.now !== '-' ? ' · 지금: ' + esc(x.now) : ''}</div>`, '이번 주 기록이 아직 없어요.', 6)}
-  </section>
-
-  <section id="result"><h2>성과</h2>
-    <p class="why">확인된 숫자만 보여요. 숫자 옆에 언제·무엇을 셌는지 같이 적어 뒀어요. 빈칸을 추측으로 채우지 않아요.</p>
-    <h3>이번 주 숫자 (${esc(d.results.opsPeriod || '운영판 기준')})</h3>
-    ${d.results.overview.length ? `<div class="big">${d.results.overview.map((o) => `<div><span class="lbl">${esc(o.title)}</span><b>${esc(o.value)}</b><div class="note">${esc(o.note)}</div></div>`).join('')}</div>` : '<div class="empty">운영판 숫자가 아직 없어요.</div>'}
-    <details><summary>숫자 ${d.results.metrics.length}개 자세히 보기</summary>${list(d.results.metrics, (m) => `<div class="t">${esc(m.title)} · ${esc(m.value)}</div><div class="s">${esc(m.note)}${m.observedAt ? ' · ' + hm(m.observedAt) + ' 확인' : ''}</div>`, '', 20)}</details>
-    ${d.results.perf ? `<h3>지난 성과 정리 (${esc(d.results.perf.period)})</h3><div class="ask" style="margin-bottom:6px">${esc(d.results.perf.line)}</div>${list(d.results.perf.rows, (r) => `<div class="t">${esc(r.did)}</div><div class="s">${esc(r.changed)}</div>`, '', 3)}` : ''}
-    <h3>끝난 실험에서 나온 것 · 진행 중 실험 ${d.results.expRunning}개</h3>
-    ${list(d.results.expEnded, (x) => `<div class="t">${esc(x.title)}</div><div class="s">결과: ${esc(x.result)}</div>${x.next ? `<div class="s">다음: ${esc(x.next)}</div>` : ''}`, '최근 끝난 실험이 없어요.', 2)}
-  </section>
-
-  <section id="auto"><h2>자동으로 돌아간 일 <span class="n">지난 24시간 ${a.runs}번</span></h2>
-    <p class="why">루틴 ${a.routines}개가 실제로 돈 결과예요. "켜져 있음"이 아니라 진짜 끝까지 됐는지를 봐요. 중간에 끊긴 실행 ${a.errored}번.</p>
-    ${list(d.auto.routines, (g) => `<div class="t"><span class="chip ${flag[g.flag] || ''}">${esc(g.flag)}</span>${esc(g.name)}</div><div class="s">${g.runs}번 실행${g.errored ? ` · 끊김 ${g.errored}번` : ''} · 마지막 ${ago(g.latestAt)}</div>${g.latest ? `<div class="ask">${esc(g.latest)}</div>` : ''}`, '지난 24시간 동안 돈 루틴이 없어요.', 6)}
-  </section>
-
-  ${d.links && d.links.length ? `<section><h2>자세히 보는 곳</h2><div class="links">${d.links.map((l) => `<a href="${esc(l.href)}">${esc(l.title)}</a>`).join('')}</div></section>` : ''}
+  ${sec('ok', d.ok.length, d.ok.length > 0, '내가 OK·답할 것', ok.length > 3 ? `위 3개 말고 ${ok.length - 3}줄 더` : '전부 위에 있어요', ok.map((x) => item(x.dot, x.text, x.age, x.more)).join(''))}
+  ${sec('doing', d.doing.tasks.length, false, '이번 주 할 일', `대화방 ${d.doing.sessions.length}개 움직이는 중`,
+    `<div class="grp">할 일</div>${d.doing.tasks.map((x) => item(x.priority === '먼저' ? 'warn' : '', short(x.title, 30), x.due ? short(x.due, 12) : '', `${esc(x.status)}${x.next ? '<br>다음: ' + esc(x.next) : ''}`)).join('') || '<div class="empty">없어요</div>'}
+     <div class="grp">대화방</div>${d.doing.sessions.slice(0, 8).map((x) => item(x.state === '내 답 기다림' ? 'warn' : x.state === '지금 작업 중' ? 'acc' : '', short(x.title, 28), ago(x.updatedAt), `${esc(x.state)}${x.ask ? '<br>' + esc(x.ask) : ''}`)).join('')}`)}
+  ${sec('done', did.length + d.done.dev.length, false, '이번 주 한 일', `회의 ${d.done.meetings.length} · 슬랙 ${d.done.slack.length} · 같이 끝낸 일 ${d.done.dev.length}`,
+    `${did.map((x) => item(x.state === '내 차례' ? 'warn' : 'acc', `${x.g} · ${short(x.what, 28)}`, mm(x.date), `${esc(x.what)}${x.todo && x.todo !== '-' ? '<br>내 할 일: ' + esc(x.todo) : ''}${x.link ? `<br><a href="${esc(x.link)}" target="_blank">원문</a>` : ''}`)).join('')}
+     ${d.done.dev.slice(0, 8).map((x) => item('', short(x.what, 32), mm(x.date), `${esc(x.what)}${x.now && x.now !== '-' ? '<br>지금: ' + esc(x.now) : ''}`)).join('')}`)}
+  ${sec('result', ov ? esc(ov.value) : '-', false, '성과', ov ? esc(short(ov.title, 24)) : '확인된 숫자 없음',
+    `<div class="kpi">${d.results.overview.map((o) => `<div><b>${esc(o.value)}</b><span>${esc(short(o.title, 22))}</span></div>`).join('')}</div>
+     ${d.results.perf ? item('acc', '지난주: ' + short(d.results.perf.line, 30), esc(d.results.perf.period), esc(d.results.perf.line)) : ''}
+     ${d.results.expEnded.slice(0, 3).map((x) => item('', short(x.title.split('·').slice(1).join('·') || x.title, 30), '실험', esc(x.result))).join('')}`)}
+  ${sec('auto', flagged.length, flagged.length > 0, '자동 작업 확인 필요', `어제부터 ${a.runs}번 돌았고 나머지는 정상`,
+    flagged.map((g) => item('warn', short(g.name, 30), ago(g.latestAt), esc(g.latest))).join('') || '<div class="empty">다 정상이에요</div>')}
+  ${d.links && d.links.length ? `<div class="links">${d.links.map((l) => `<a href="${esc(l.href)}">${esc(l.title)}</a>`).join('')}</div>` : ''}
   `;
   $('#app').innerHTML = html;
 }
