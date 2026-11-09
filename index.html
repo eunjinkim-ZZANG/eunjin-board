@@ -121,7 +121,7 @@ function render(d) {
   <div class="hero"><h2>지금 할 것</h2>
     ${ok.slice(0, 3).map((x) => item(x.dot, x.text, x.age, x.more)).join('') || '<div class="empty">기다리는 게 없어요</div>'}
   </div>
-  ${sec('ok', d.ok.length, d.ok.length > 0, '내가 OK·답할 것', ok.length > 3 ? `위 3개 말고 ${ok.length - 3}줄 더` : '전부 위에 있어요', ok.map((x) => item(x.dot, x.text, x.age, x.more)).join(''))}
+  ${sec('ok', ok.length, ok.length > 0, '내가 OK·답할 것', '위 3개 포함 전부 보기', ok.map((x) => item(x.dot, x.text, x.age, x.more)).join(''))}
   ${sec('doing', d.doing.tasks.length, false, '이번 주 할 일', `대화방 ${d.doing.sessions.length}개 움직이는 중`,
     `<div class="grp">할 일</div>${d.doing.tasks.map((x) => item(x.priority === '먼저' ? 'warn' : '', short(x.title, 30), x.due ? short(x.due, 12) : '', `${esc(x.status)}${x.next ? '<br>다음: ' + esc(x.next) : ''}`)).join('') || '<div class="empty">없어요</div>'}
      <div class="grp">대화방</div>${d.doing.sessions.slice(0, 8).map((x) => item(x.state === '내 답 기다림' ? 'warn' : x.state === '지금 작업 중' ? 'acc' : '', short(x.title, 28), ago(x.updatedAt), `${esc(x.state)}${x.ask ? '<br>' + esc(x.ask) : ''}`)).join('')}`)}
@@ -132,7 +132,7 @@ function render(d) {
     `<div class="kpi">${d.results.overview.map((o) => `<div><b>${esc(o.value)}</b><span>${esc(short(o.title, 22))}</span></div>`).join('')}</div>
      ${d.results.perf ? item('acc', '지난주: ' + short(d.results.perf.line, 30), esc(d.results.perf.period), esc(d.results.perf.line)) : ''}
      ${d.results.expEnded.slice(0, 3).map((x) => item('', short(x.title.split('·').slice(1).join('·') || x.title, 30), '실험', esc(x.result))).join('')}`)}
-  ${sec('auto', flagged.length, flagged.length > 0, '자동 작업 확인 필요', `어제부터 ${a.runs}번 돌았고 나머지는 정상`,
+  ${sec('auto', flagged.length, flagged.length > 0, '자동 작업 확인 필요', `지난 24시간 ${a.runs}번 돌았고 나머지는 정상`,
     flagged.map((g) => item('warn', short(g.name, 30), ago(g.latestAt), esc(g.latest))).join('') || '<div class="empty">다 정상이에요</div>')}
   ${d.links && d.links.length ? `<div class="links">${d.links.map((l) => `<a href="${esc(l.href)}">${esc(l.title)}</a>`).join('')}</div>` : ''}
   `;
